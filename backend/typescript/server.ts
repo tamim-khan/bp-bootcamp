@@ -3,7 +3,8 @@ import cors from "cors";
 import express from "express";
 
 import { mongo } from "./models";
-import entityRouter from "./rest/entityRoutes";
+import productRouter from "./rest/productRoutes";
+import saleRouter from "./rest/saleRoutes";
 
 const CORS_ALLOW_LIST = ["http://localhost:3000"];
 
@@ -18,7 +19,8 @@ app.use(cors(CORS_OPTIONS));
 app.use(express.json());
 app.use(express.urlencoded());
 
-app.use("/entities", entityRouter);
+app.use("/products", productRouter);
+app.use("/sales", saleRouter);
 
 mongo.connect();
 
